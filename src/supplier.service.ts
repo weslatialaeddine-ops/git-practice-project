@@ -12,3 +12,12 @@ export function getSuppliers(
     supplier.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 }
+
+export function paginateSuppliers(
+  suppliers: Supplier[],
+  page: number,
+  pageSize: number,
+): Supplier[] {
+  const startIndex = (page - 1) * pageSize;
+  return suppliers.slice(startIndex, startIndex + pageSize);
+}
