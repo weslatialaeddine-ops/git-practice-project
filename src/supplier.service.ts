@@ -4,6 +4,11 @@ export interface Supplier {
   active: boolean;
 }
 
-export function getSuppliers(suppliers: Supplier[]): Supplier[] {
-  return suppliers;
+export function getSuppliers(
+  suppliers: Supplier[],
+  searchTerm: string = "",
+): Supplier[] {
+  return suppliers.filter((supplier) =>
+    supplier.name.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 }
